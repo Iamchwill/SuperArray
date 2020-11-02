@@ -9,4 +9,13 @@ public class SuperArray {
   public int size() {
     return size;
   }
+
+  public boolean add(String element) {
+    data[size] = element;
+    size++;
+    if (data[size - 1].equals(element)) {
+      return true;
+    }
+    return false;
+  }
 }
