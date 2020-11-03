@@ -48,13 +48,17 @@ public class SuperArray {
   public String toString() {
     String out = "[";
     int last = 0;
-    for (int i = 0; i < data.length; i++) {
-      if (data[i] != null) last = i;
-    }
-    for (int j = 0; j < last; j++) {
+    for (int j = 0; j < size - 1; j++) {
         out += data[j] + ", ";
       }
-    out += data[last] + "]";
+    out += data[size - 1] + "]";
     return out;
+  }
+
+  public boolean contains(String s) {
+    for (int i = 0; i < size; i++) {
+      if (data[i].equals(s)) return true;
+    }
+    return false;
   }
 }

@@ -15,9 +15,10 @@ public class Tester {
     System.out.println(words.get(0));
     System.out.println(words.get(1));
     System.out.println(words.get(3));
-    System.out.println(words.get(22));
+    System.out.println(words.get(20));
     System.out.println(words.get(words.size() - 1));
     System.out.println(words);
+    System.out.println(words.contains("kani"));
     System.out.println(words.isEmpty());
     words.clear();
     System.out.println(words.isEmpty());
