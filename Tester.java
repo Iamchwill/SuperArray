@@ -1,6 +1,7 @@
 public class Tester {
   public static void main(String[] args) {
     SuperArray words = new SuperArray();
+    SuperArray cap = new SuperArray(23);
     System.out.println(words.add("kani"));
     System.out.println(words.size());
     System.out.println(words.add("uni"));
@@ -23,5 +24,7 @@ public class Tester {
     words.clear();
     System.out.println(words.isEmpty());
     System.out.println(words.get(0));
+    System.out.println(cap.get(22));
+    System.out.println(cap.get(23));
   }
 }

@@ -1,8 +1,14 @@
 public class SuperArray {
   private String[] data;
   private int size;
+
   public SuperArray() {
     data = new String[10];
+    size = 0;
+  }
+
+  public SuperArray(int capacity) {
+    data = new String[capacity];
     size = 0;
   }
 
@@ -41,8 +47,8 @@ public class SuperArray {
   public void clear() {
     for (int i = 0; i < data.length; i++) {
       data[i] = null;
+    }
     size = 0;
-  }
 }
 
   public String toString() {
