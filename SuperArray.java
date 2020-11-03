@@ -28,9 +28,33 @@ public class SuperArray {
 
   private void resize() {
     String[] temp = data;
-    data = new String[size + 10];
+    data = new String[data.length * 2];
       for (int i = 0; i < temp.length; i++) {
         data[i] = temp[i];
       }
+  }
+
+  public boolean isEmpty() {
+    return size == 0;
+  }
+
+  public void clear() {
+    for (int i = 0; i < data.length; i++) {
+      data[i] = null;
+    size = 0;
+  }
+}
+
+  public String toString() {
+    String out = "[";
+    int last = 0;
+    for (int i = 0; i < data.length; i++) {
+      if (data[i] != null) last = i;
+    }
+    for (int j = 0; j < last; j++) {
+        out += data[j] + ", ";
+      }
+    out += data[last] + "]";
+    return out;
   }
 }
