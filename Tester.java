@@ -35,5 +35,9 @@ public class Tester {
     System.out.println(words.indexOf("Test"));
     System.out.println(words.indexOf("fill17"));
     System.out.println(words.indexOf("nothing"));
+    String[] test = words.toArray();
+    for (int i = 0; i < test.length; i++) {
+      System.out.print(test[i] + " ");
+    }
   }
 }
