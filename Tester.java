@@ -32,5 +32,8 @@ public class Tester {
     System.out.println(words.remove(2));
     System.out.println(words.remove(2));
     System.out.println(words);
+    System.out.println(words.indexOf("Test"));
+    System.out.println(words.indexOf("fill17"));
+    System.out.println(words.indexOf("nothing"));
   }
 }
