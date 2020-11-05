@@ -57,30 +57,39 @@ public class SuperArray {
     for (int j = 0; j < size - 1; j++) {
         out += data[j] + ", ";
       }
-    out += data[size - 1] + "]";
-    return out;
-  }
-
-  public boolean contains(String s) {
-    for (int i = 0; i < size; i++) {
-      if (data[i].equals(s)) return true;
+      out += data[size - 1] + "]";
+      return out;
     }
-    return false;
-  }
 
-  public void add(int index, String element) {
-    if (size == data.length) resize();
-    String[] replace = new String[data.length];
-    int replaceDex = 0;
-    for (int count = 0; count < size + 1; count++) {
-      if (replaceDex == index) {
-        replace[replaceDex] = element;
+    public boolean contains(String s) {
+      for (int i = 0; i < size; i++) {
+        if (data[i].equals(s)) return true;
+      }
+      return false;
+    }
+
+    public void add(int index, String element) {
+      if (size == data.length) resize();
+      String[] replace = new String[data.length];
+      int replaceDex = 0;
+      for (int count = 0; count < size + 1; count++) {
+        if (replaceDex == index) {
+          replace[replaceDex] = element;
+          replaceDex++;
+        }
+        replace[replaceDex] = data[count];
         replaceDex++;
       }
-      replace[replaceDex] = data[count];
-      replaceDex++;
+      data = replace;
+      size++;
     }
-    data = replace;
-    size++;
+
+    public String remove(int index) {
+      size--;
+      String out = data[index];
+      for (int i = index; i < size; i++) {
+        data[i] = data[i + 1];
+      }
+      return out;
     }
-}
+  }

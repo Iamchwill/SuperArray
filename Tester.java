@@ -29,5 +29,8 @@ public class Tester {
     words.add(0, "Test");
     words.add(1, "fill1");
     System.out.println(words);
+    System.out.println(words.remove(2));
+    System.out.println(words.remove(2));
+    System.out.println(words);
   }
 }
