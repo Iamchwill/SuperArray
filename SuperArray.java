@@ -67,4 +67,20 @@ public class SuperArray {
     }
     return false;
   }
+
+  public void add(int index, String element) {
+    if (size == data.length) resize();
+    String[] replace = new String[data.length];
+    int replaceDex = 0;
+    for (int count = 0; count < size + 1; count++) {
+      if (replaceDex == index) {
+        replace[replaceDex] = element;
+        replaceDex++;
+      }
+      replace[replaceDex] = data[count];
+      replaceDex++;
+    }
+    data = replace;
+    size++;
+    }
 }

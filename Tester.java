@@ -21,10 +21,13 @@ public class Tester {
     System.out.println(words);
     System.out.println(words.contains("kani"));
     System.out.println(words.isEmpty());
-    words.clear();
+    // words.clear();
     System.out.println(words.isEmpty());
     System.out.println(words.get(0));
     System.out.println(cap.get(22));
-    System.out.println(cap.get(23));
+    System.out.println(words.size());
+    words.add(0, "Test");
+    words.add(1, "fill1");
+    System.out.println(words);
   }
 }
