@@ -39,5 +39,22 @@ public class Tester {
     for (int i = 0; i < test.length; i++) {
       System.out.print(test[i] + " ");
     }
+    for (int i = 0; i < 23; i++) {
+      if (i % 2 != 0) cap.add("odd");
+      else cap.add("even");
+    }
+    System.out.println();
+    System.out.println(cap.indexOf("odd"));
+    System.out.println(cap.lastIndexof("odd"));
+    System.out.println(cap.indexOf("even"));
+    System.out.println(cap.lastIndexof("even"));
+    SuperArray check = new SuperArray();
+    SuperArray copy = new SuperArray();
+    check.add("Same"); copy.add("Same");
+    System.out.println(check.equals(copy));
+    check.add("different");
+    System.out.println(check.equals(copy));
+    copy.add("different");
+    System.out.println(check.equals(copy));
   }
 }

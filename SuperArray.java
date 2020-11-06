@@ -107,4 +107,18 @@ public class SuperArray {
       }
       return safe;
     }
+
+    public int lastIndexof(String value) {
+      for (int i = size - 1; i >= 0; i--) {
+        if (data[i].equals(value)) return i;
+    }
+    return -1;
+  }
+
+    public boolean equals(SuperArray other) {
+      for (int i = 0; i < size; i++) {
+        if (data[i] != other.get(i)) return false;
+      }
+      return true;
+    }
   }
