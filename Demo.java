@@ -13,6 +13,19 @@ public class Demo{
     return overlap;
   }
 
+  public static SuperArray zip(SuperArray a, SuperArray b) {
+    int count = 0;
+    SuperArray out = new SuperArray(a.size() + b.size());
+    if (a.size() > b.size()) count = a.size();
+    else count = b.size();
+    for (int i = 0; i < count; i++) {
+      if (a.size() > i) System.out.println(out.add(a.get(i)));
+      if (b.size() > i) System.out.println(out.add(b.get(i)));
+    }
+    System.out.println(out.size());
+    return out;
+  }
+
   public static void main(String[]args){
     SuperArray words = new SuperArray();
     //grouped to save vertical space
@@ -24,9 +37,12 @@ public class Demo{
     newWords.add("toro");
     newWords.add("3");
     newWords.add("uni");
+    newWords.add("toro");
     System.out.println(words);
     removeDuplicates(words);
     System.out.println(words);
     System.out.println(findOverlap(words, newWords));
+    System.out.println(zip(words, newWords));
+    System.out.println(zip(newWords, words));
   }
 }
