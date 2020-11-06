@@ -45,9 +45,9 @@ public class Tester {
     }
     System.out.println();
     System.out.println(cap.indexOf("odd"));
-    System.out.println(cap.lastIndexof("odd"));
+    System.out.println(cap.lastIndexOf("odd"));
     System.out.println(cap.indexOf("even"));
-    System.out.println(cap.lastIndexof("even"));
+    System.out.println(cap.lastIndexOf("even"));
     SuperArray check = new SuperArray();
     SuperArray copy = new SuperArray();
     check.add("Same"); copy.add("Same");
