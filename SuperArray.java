@@ -28,8 +28,9 @@ public class SuperArray {
   }
 
   public String set(int index, String element) {
+    String out = data[index];
     data[index] = element;
-    return data[index];
+    return out;
   }
 
   private void resize() {
@@ -52,8 +53,8 @@ public class SuperArray {
 }
 
   public String toString() {
+    if (size == 0) return "[]";
     String out = "[";
-    int last = 0;
     for (int j = 0; j < size - 1; j++) {
         out += data[j] + ", ";
       }
@@ -108,14 +109,15 @@ public class SuperArray {
       return safe;
     }
 
-    public int lastIndexof(String value) {
+    public int lastIndexOf(String value) {
       for (int i = size - 1; i >= 0; i--) {
         if (data[i].equals(value)) return i;
-    }
+      }
     return -1;
   }
 
     public boolean equals(SuperArray other) {
+      if (size != other.size()) return false;
       for (int i = 0; i < size; i++) {
         if (data[i] != other.get(i)) return false;
       }
