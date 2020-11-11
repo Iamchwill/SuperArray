@@ -8,8 +8,14 @@ public class SuperArray {
   }
 
   public SuperArray(int capacity) {
-    data = new String[capacity];
-    size = 0;
+    if (capacity < 0) {
+      throw new IllegalArgumentException(
+      "Negative Capactiy: " + capacity + " cannot be the capacity.");
+    }
+    else {
+      data = new String[capacity];
+      size = 0;
+    }
   }
 
   public int size() {
@@ -24,18 +30,26 @@ public class SuperArray {
   }
 
   public String get(int index) {
-    return data[index];
+    if (index >= size || index < 0) {
+      throw new IndexOutOfBoundsException();
+    }
+    else return data[index];
   }
 
   public String set(int index, String element) {
-    String out = data[index];
-    data[index] = element;
-    return out;
+    if (index >= size || index < 0) {
+      throw new IndexOutOfBoundsException();
+    }
+    else {
+      String out = data[index];
+      data[index] = element;
+      return out;
+    }
   }
 
   private void resize() {
     String[] temp = data;
-    data = new String[data.length * 2];
+    data = new String[data.length * 2 + 1];
       for (int i = 0; i < temp.length; i++) {
         data[i] = temp[i];
       }
@@ -70,22 +84,31 @@ public class SuperArray {
     }
 
     public void add(int index, String element) {
-      if (size == data.length) resize();
-      String[] replace = new String[data.length];
-      int replaceDex = 0;
-      for (int count = 0; count < size + 1; count++) {
-        if (replaceDex == index) {
-          replace[replaceDex] = element;
+      if (index > size || index < 0) {
+        throw new IndexOutOfBoundsException();
+      }
+      else {
+        if (size == data.length) resize();
+        String[] replace = new String[data.length];
+        int replaceDex = 0;
+        for (int count = 0; count < size + 1; count++) {
+          if (replaceDex == index) {
+            replace[replaceDex] = element;
+            replaceDex++;
+          }
+          replace[replaceDex] = data[count];
           replaceDex++;
         }
-        replace[replaceDex] = data[count];
-        replaceDex++;
+        data = replace;
+        size++;
       }
-      data = replace;
-      size++;
     }
 
     public String remove(int index) {
+      if (index >= size || index < 0) {
+        throw new IndexOutOfBoundsException();
+      }
+      else {
       size--;
       String out = data[index];
       for (int i = index; i < size; i++) {
@@ -93,6 +116,7 @@ public class SuperArray {
       }
       return out;
     }
+  }
 
     public int indexOf(String s) {
       for (int i = 0; i < size; i++) {

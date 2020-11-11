@@ -1,7 +1,7 @@
 public class Tester {
   public static void main(String[] args) {
     SuperArray words = new SuperArray();
-    SuperArray cap = new SuperArray(23);
+/*    SuperArray cap = new SuperArray(23);
     System.out.println(words.add("kani"));
     System.out.println(words.size());
     System.out.println(words.add("uni"));
@@ -9,10 +9,11 @@ public class Tester {
     System.out.println(words.get(0));
     System.out.println(words.get(1));
     System.out.println(words.set(1, "ebi"));
+    */
     for (int i = words.size(); i < 23; i++) {
       words.add("fill" + i);
     }
-    System.out.println(words.size());
+/*    System.out.println(words.size());
     System.out.println(words.get(0));
     System.out.println(words.get(1));
     System.out.println(words.get(3));
@@ -24,7 +25,6 @@ public class Tester {
     // words.clear();
     System.out.println(words.isEmpty());
     System.out.println(words.get(0));
-    System.out.println(cap.get(22));
     System.out.println(words.size());
     words.add(0, "Test");
     words.add(1, "fill1");
@@ -56,5 +56,70 @@ public class Tester {
     System.out.println(check.equals(copy));
     copy.add("different");
     System.out.println(check.equals(copy));
+    */
+    try {
+      SuperArray x = new SuperArray(-3);
+    }
+    catch (IllegalArgumentException illegal) {
+      System.out.println(illegal);
+    }
+    try {
+      SuperArray x = new SuperArray(5);
+    }
+    catch (IllegalArgumentException illegal) {
+      System.out.println("Should not have failed");
+    }
+
+    try {
+      System.out.println(words.get(1000));
+    }
+    catch (IndexOutOfBoundsException illegal) {
+      System.out.println(illegal);
+    }
+    try {
+      System.out.println(words.get(10));
+    }
+    catch (IndexOutOfBoundsException illegal) {
+      System.out.println("Should not have failed");
+    }
+
+    try {
+      System.out.println(words.set(1000, "breaks"));
+    }
+    catch (IndexOutOfBoundsException illegal) {
+      System.out.println(illegal);
+    }
+    try {
+      System.out.println(words.set(10, "works"));
+    }
+    catch (IndexOutOfBoundsException illegal) {
+      System.out.println("Should not have failed");
+    }
+
+    try {
+      words.add(200, "breaks");
+    }
+    catch (IndexOutOfBoundsException illegal) {
+      System.out.println(illegal);
+    }
+    try {
+      words.add(3, "works");
+    }
+    catch (IndexOutOfBoundsException illegal) {
+      System.out.println("Should not have failed");
+    }
+
+    try {
+      System.out.println(words.remove(1000));
+    }
+    catch (IndexOutOfBoundsException illegal) {
+      System.out.println(illegal);
+    }
+    try {
+      System.out.println(words.remove(10));
+    }
+    catch (IndexOutOfBoundsException illegal) {
+      System.out.println("Should not have failed");
+    }
   }
 }
