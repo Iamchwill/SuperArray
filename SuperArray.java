@@ -89,7 +89,7 @@ public class SuperArray {
       }
       else {
         if (size == data.length) resize();
-        String[] replace = new String[data.length];
+        String[] replace = new String[data.length + 1];
         int replaceDex = 0;
         for (int count = 0; count < size + 1; count++) {
           if (replaceDex == index) {
